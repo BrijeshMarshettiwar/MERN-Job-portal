@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 
+
 const MyJobs = () => {
   
   const [jobs, setJobs] = useState([]);
@@ -108,8 +109,8 @@ const MyJobs = () => {
                 </thead>
 
                 {
-                  isLoading ? (<div className='flex items-center justify-center h-20'><p>loading...</p></div>) 
-                  : (<tbody>
+                  isLoading ? (<div className='flex items-center justify-center h-20'><p>loading...</p></div>) :
+                   (<tbody>
                     {
                       currentJobs.map((job, index) =>(
                         <tr key={index}>
