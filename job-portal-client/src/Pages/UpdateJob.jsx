@@ -22,8 +22,8 @@ const UpdateJob = () => {
   const onSubmit = (data) => {
     data.skills = selectedOption;
     // console.log(data)
-    fetch("http://localhost:3000/post-job", {
-      method: "POST", 
+    fetch(`http://localhost:3000/update-jb/${id}`, {
+      method: "PATCH", 
       headers:{'content-type': 'application/json'}, 
       body: JSON.stringify(data)
     })
@@ -31,7 +31,7 @@ const UpdateJob = () => {
       .then((result) =>{
       console.log(result);
       if(result.acknowledged === true){
-        alert("Job posted Successfully")
+        alert("Job Updated Successfully")
       }
       reset()
     })
