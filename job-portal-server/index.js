@@ -82,6 +82,22 @@ async function run() {
       res.send(result)
     })
 
+    // update a job
+    app.patch("/update-jb/:id", async(req, res) => {
+      const id = req.params.id;
+      const jobData = req.body;
+      const filter = {_id: new ObjectId(id)};
+      const options = { upsert: true };
+      const updateDoc = {
+        $set: {
+          ...jobData
+        },
+      };
+
+      const result = await jobsCollections.updateOne(filter, updateDoc, options);
+      res.send(result)
+    })
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
