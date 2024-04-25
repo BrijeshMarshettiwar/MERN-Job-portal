@@ -20,7 +20,7 @@ const Router = createBrowserRouter([
       {path: "/salary",element: <SalaryPage/>},
       {path: "/edit-job/:id",element: <UpdateJob/>,loader: ({params}) => fetch(`http://localhost:3000/all-jobs/${params.id}`)},
       {path: "/login",element: <Login/>},
-      {path: "/job/:id",element: <JobDetails/>},
+      {path: "/job/:id",element: <JobDetails/>,loader: ({params}) => fetch(`http://localhost:3000/all-jobs/${params.id}`)},
       
     ]
   },
